@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>QR-CODE CREATOR</title>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Pontano+Sans&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="background">
+
+        <div class="card">
+
+            {% if title %}
+            <h1>{{ title }}</h1>
+            {% else %}
+            <h1>QR-CODE CREATOR</h1>
+            {% endif %}
+
+            <p>Author: <a href="mailto:olliver.persson@gmail.com">Olliver Persson</a></p>
+
+            {% block content %}{% endblock %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
