@@ -34,6 +34,18 @@ def wifiqr():
     
     form = CreateWifiForm()
     
+    if form.validate_on_submit():
+    
+        qrtext = "WIFI:T:{};S:{};P:{};H:{};".format(form.wifiType.data, form.wifiName.data, form.wifiPass.data, str(form.ssidHidden.data))
+    
+        qrcode = pyqrcode.create( qrtext )
+        
+        qrid = uuid()
+        
+        qrcode.svg('app/static/qrcodes/{}.svg'.format(qrid), scale=8)
+        
+        return redirect(url_for('created', qrid=qrid))
+    
     return render_template('wifiqr.html', form=form)
 
 
