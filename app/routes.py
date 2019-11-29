@@ -46,7 +46,7 @@ def wifiqr():
         
         return redirect(url_for('created', qrid=qrid))
     
-    return render_template('wifiqr.html', form=form)
+    return render_template('wifiqr.html', form=form, title='WIFI QR-CODE CREATOR')
 
 
 @app.route('/qrcode/<string:qrid>', methods=['GET'])
