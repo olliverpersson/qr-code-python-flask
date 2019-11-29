@@ -4,8 +4,6 @@
 
 <p>Your QR Code:</p>
 
-<img src="{{ imgsrc }}">
-
-<p>{{ imgtxt }} </p>
+<img src="{{ url_for('static', filename='qrcodes/{}.svg'.format(qrid)) }}">
 
 {% endblock %}

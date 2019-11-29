@@ -21,13 +21,15 @@ def creator():
         
         qrcode = pyqrcode.create( form.textToCreate.data )
         
-        imgsrc = qrcode.svg('qrcode.svg', scale=8)
+        qrid = uuid()
         
-        return redirect(url_for('created', imgtxt = form.textToCreate.data, imgsrc=imgsrc))
+        qrcode.svg('app/static/qrcodes/{}.svg'.format(qrid), scale=8)
+        
+        return redirect(url_for('created', qrid=qrid))
         
     return render_template('creator.html', title='QR-CODE CREATOR', form=form)
 
-@app.route('/qrcode/<string:imgtxt>/<string:imgsrc>/', methods=['GET'])
-def created(imgsrc,imgtxt):
+@app.route('/qrcode/<string:qrid>', methods=['GET'])
+def created(qrid):
     
-    return render_template('created.html', title='QR-CODE CREATED', imgsrc=imgsrc, imgtxt=imgtxt)
+    return render_template('created.html', title='QR-CODE CREATED', qrid=qrid)
