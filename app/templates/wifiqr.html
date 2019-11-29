@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Create your QR-CODE by entering any text string to the field below. Generate the qr-code by clicking "Create".</p>
+
+<form method="post" style="margin-top: 30px">
+
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.wifiName.label }}<br>
+        {{ form.wifiName }}<br>
+        {% for error in form.wifiName.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.wifiType.label }}<br>
+        {{ form.wifiType }}<br>
+        {% for error in form.wifiType.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.wifiPass.label }}<br>
+        {{ form.wifiPass }}<br>
+        {% for error in form.wifiPass.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.ssidHidden.label }}<br>
+        {{ form.ssidHidden }}<br>
+        {% for error in form.ssidHidden.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+
+    <p>{{ form.submit() }}</p>
+
+</form>
+
+{% endblock %}
