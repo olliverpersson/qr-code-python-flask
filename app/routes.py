@@ -1,7 +1,8 @@
-from flask import render_template, request, url_for, redirect
+from flask import render_template, request, url_for, redirect, send_file
 from app import app
 import os
 import pyqrcode
+import png
 from app.forms import CreateForm, CreateWifiForm
 from uuid import uuid4 as uuid
 
@@ -23,7 +24,7 @@ def creator():
         
         qrid = uuid()
         
-        qrcode.svg('app/static/qrcodes/{}.svg'.format(qrid), scale=8)
+        qrcode.png('app/static/qrcodes/{}.png'.format(qrid), scale=8)
         
         return redirect(url_for('created', qrid=qrid))
         
@@ -42,7 +43,7 @@ def wifiqr():
         
         qrid = uuid()
         
-        qrcode.svg('app/static/qrcodes/{}.svg'.format(qrid), scale=8)
+        qrcode.png('app/static/qrcodes/{}.png'.format(qrid), scale=8)
         
         return redirect(url_for('created', qrid=qrid))
     
@@ -53,4 +54,9 @@ def wifiqr():
 def created(qrid):
     
     return render_template('created.html', title='QR-CODE CREATED', qrid=qrid)
+
+@app.route('/download/<string:qrid>', methods=['GET'])
+def download(qrid):
+    
+    return send_file('static/qrcodes/{}.png'.format(qrid), attachment_filename='qr-code.png', as_attachment=True)
 

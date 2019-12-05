@@ -9,8 +9,8 @@ class CreateForm(FlaskForm):
     
 class CreateWifiForm(FlaskForm):
     
-    wifiName = StringField('WIFI Name', validators=[DataRequired()])
-    wifiType = SelectField('Wifi Type', choices = [('WEP', 'WEP'), ('WPA', 'WPA'), ('nopass', 'No password')], validators=[DataRequired()])
-    wifiPass = PasswordField('Wifi Password')
-    ssidHidden = BooleanField('Use SSID', validators=[DataRequired()])
+    wifiName = StringField('Wifi Name', validators=[DataRequired()])
+    wifiType = SelectField('Authentication Type', choices = [('WEP', 'WEP'), ('WPA', 'WPA'), ('nopass', 'No password')], validators=[DataRequired()])
+    wifiPass = PasswordField('Wifi Password (optional)')
+    ssidHidden = BooleanField('Hidden SSID')
     submit = SubmitField('Create')

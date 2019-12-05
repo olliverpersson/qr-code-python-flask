@@ -4,6 +4,9 @@
 
 <p>Your QR Code:</p>
 
-<img src="{{ url_for('static', filename='qrcodes/{}.svg'.format(qrid)) }}">
+<img src="{{ url_for('static', filename='qrcodes/{}.png'.format(qrid)) }}">
+
+
+<a href=" {{ url_for('download', qrid=qrid) }} " style="display: block">Download</a>
 
 {% endblock %}
