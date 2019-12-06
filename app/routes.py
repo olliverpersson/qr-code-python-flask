@@ -20,7 +20,7 @@ def creator():
     form = CreateForm()
     if form.validate_on_submit():
         
-        qrcode = pyqrcode.create( form.textToCreate.data )
+        qrcode = pyqrcode.create( form.textToCreate.data, error=form.errorCorrection.data )
         
         qrid = uuid()
         
@@ -39,7 +39,7 @@ def wifiqr():
     
         qrtext = "WIFI:T:{};S:{};P:{};H:{};".format(form.wifiType.data, form.wifiName.data, form.wifiPass.data, str(form.ssidHidden.data))
     
-        qrcode = pyqrcode.create( qrtext )
+        qrcode = pyqrcode.create( qrtext, error=form.errorCorrection.data )
         
         qrid = uuid()
         

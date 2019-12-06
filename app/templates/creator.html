@@ -15,6 +15,13 @@
         <span style="color: red;">{{ error }}</span>
         {% endfor %}
     </p>
+    <p>
+        {{ form.errorCorrection.label }}<br>
+        {{ form.errorCorrection(cols=32, rows=4) }}<br>
+        {% for error in form.errorCorrection.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
 
     <p>{{ form.submit() }}</p>
 
