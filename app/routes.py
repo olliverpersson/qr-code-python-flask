@@ -60,3 +60,8 @@ def download(qrid):
     
     return send_file('static/qrcodes/{}.png'.format(qrid), attachment_filename='qr-code.png', as_attachment=True)
 
+@app.route('/client-side', methods=['GET'])
+def client_side():
+    
+    return render_template('client_side.html')
+
