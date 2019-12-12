@@ -64,4 +64,3 @@ def download(qrid):
 def client_side():
     
     return render_template('client_side.html')
-
