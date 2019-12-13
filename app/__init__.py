@@ -13,19 +13,16 @@ def clear_qr_codes():
     
     print("Clearing cached qrcodes")
     
-    try:
-        os.rmdir('static/qrcodes')
-        os.mkdir('static/qrcodes')
-    except:
-        print('No QR Codes to delete')
-        os.mkdir('static/qrcodes')
+    if os.path.exists('static/qrcodes'):
+         os.rmdir('static/qrcodes')
+    
+    os.mkdir('static/qrcodes')
     
     try:
         seconds = int(os.environ['CLEAR_CACHE_SECONDS'])
     except:
         print('CLEAR_CACHE_SECONDS not defined, using 1800 seconds(30 minutes)')
         seconds = 1800
-        
         
     print(seconds)
     
