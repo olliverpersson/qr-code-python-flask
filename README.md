@@ -2,7 +2,7 @@
 
 Flask project for creating qr codes
 
-**Functions**
+**Features**
 1. Create QR Codes
 2. Create QR Codes for connecting to WIFI
 3. Download your qrcodes
