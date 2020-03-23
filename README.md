@@ -1,6 +1,7 @@
 # qr-code-python-flask
 
-Flask project for creating qr codes
+Flask project for creating qr codes.
+Created in the course Web Server Development 1 at Njudungsgymnasiet, Vetlanda, Sweden.
 
 **Features**
 1. Create QR Codes
